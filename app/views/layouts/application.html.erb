@@ -9,14 +9,24 @@
   </head>
 
   <body>
-    <% if user_signed_in? %>
-    <h3>Hello, <%= current_user.email %>!</h3>
-    <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-    <% else %>
-    <%= link_to "Sign in", new_user_session_path %>
-    <%= link_to "Sign up", new_user_registration_path %>
-    <% end %>
-
-    <%= yield %>
+    <header class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+        <%= link_to "Beautiful Landscape", root_path, id: "logo" %>
+        <nav>
+          <ul class="nav navbar-nav navbar-right">
+            <% if user_signed_in? %>
+            <li><%= link_to "Hello, #{current_user.email}!", '#' %></li>  
+            <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+            <% else %>
+            <li><%= link_to "Sign in", new_user_session_path %></li>  
+            <li><%= link_to "Sign up", new_user_registration_path %></li>  
+            <% end %>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>

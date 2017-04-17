@@ -37,6 +37,9 @@ ActiveRecord::Schema.define(version: 20170416190348) do
     t.text     "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["image_id"], name: "index_reviews_on_image_id"
+    t.index ["user_id", "image_id"], name: "index_reviews_on_user_id_and_image_id", unique: true
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
