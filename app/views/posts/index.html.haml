@@ -1,0 +1,10 @@
+.posts-wrapper.row
+  -@posts.each do |post|
+    .post
+      .post-head
+        .name
+          Lê Phúc
+      .image.center-block
+        =link_to (image_tag post.image.url(:medium), class:'img-responsive center-block'), post_path(post)
+      %p.caption
+        =post.caption
