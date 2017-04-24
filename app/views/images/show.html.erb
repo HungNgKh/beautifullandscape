@@ -25,5 +25,29 @@
   <%= @image.created_at %>
 </p>
 
+<p>
+  <strong>List comment:</strong>
+</p>
+  <ul>
+    <% @image.image_comment.each do |image_comment|%>
+      <li>
+        <%= image_comment.comment%>
+        (<i><%= image_comment.user_id %></i>)
+      </li>
+    <% end %>
+  </ul>
+
+<%= form_for(@image_comment) do |f| %>
+  <div class= "field">
+    <%= f.label :comment %><br>
+    <%= f.text_field :comment %>
+    <%= f.hidden_field :image_id, :value => @image.id %>
+  </div>
+    <div class= "actions">
+      <%= f.submit %>
+    <div>
+  </div>
+<% end %>
+
 <%= link_to 'Edit', edit_image_path(@image) %> |
 <%= link_to 'Back', images_path %>
