@@ -1,0 +1,2 @@
+$("#post_<%= @post.id %>_likes").html("<%=j render partial: "likes", locals: {post: @post} %>");
+$('#comment_content_<%= @post.id %>').val('')

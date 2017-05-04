@@ -384,12 +384,22 @@ body {
 .container {
   margin-right: auto;
   margin-left: auto;
-  padding-left: 15px;
-  padding-right: 15px;
-  min-height: 80vh;
-
+  background-image: url("w2.jpeg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  width: 100vw;
+  height-min: 100vh;
   .row {
     margin-top: 50px;
   }
 }
 
+a:hover {
+  color: #fff;
+  background-color: transparent;
+}
+
+#body {
+
+}
