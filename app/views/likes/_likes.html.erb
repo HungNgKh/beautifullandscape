@@ -1,10 +1,10 @@
 <% if user_signed_in? && current_user.likes?(post) %>
-    <%= link_to post_like_path(post), method: :delete, remote: true do %>
-        <span class="glyphicon glyphicon-thumbs-down"></span> Unlike
+    <%= link_to post_like_path(post), method: :delete, remote: true do%>
+        <span class="glyphicon glyphicon-thumbs-down"></span> 悪い！
     <% end %>
 <% else %>
-    <%= link_to post_like_path(post), method: :post, remote: true do %>
-        <span class="glyphicon glyphicon-thumbs-up"></span> Like
+    <%= link_to post_like_path(post), method: :post, remote: true do%>
+        <span class="glyphicon glyphicon-thumbs-up"></span> いいね！
     <% end %>
 <% end %>
 <br>

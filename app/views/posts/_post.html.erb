@@ -3,7 +3,7 @@
     <div class="post-head">
       <div class="thumb-img"></div>
       <div class="user-name">
-        <%= post.user.user_name %>
+        <%= link_to post.user.user_name, profile_path(post.user.user_name) %>
       </div>
       <div class="time-ago">
         <%= time_ago_in_words post.created_at %>
@@ -29,16 +29,13 @@
     </div>
     <div class="comment-like-form row">
       <div class="like-button col-sm-2">
-        <!--<button type="button" class="btn btn-default btn-sm">-->
-          <!--<span class="glyphicon glyphicon-thumbs-up"></span> Like-->
-        <!--</button>-->
         <div id="post_<%= post.id %>_likes">
           <%= render "likes/likes", post: post %>
         </div>
       </div>
       <div class="comment-form col-sm-10">
         <%= form_for [post, post.comments.new], remote: true do |f| %>
-            <%= f.text_field :content, placeholder: 'what do you think about this post?' %>
+            <%= f.text_field :content, placeholder: 'コメントする' %>
         <% end %>
       </div>
     </div>
